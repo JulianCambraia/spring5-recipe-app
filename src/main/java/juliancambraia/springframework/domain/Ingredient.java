@@ -40,7 +40,6 @@ public class Ingredient {
         this.recipe = recipe;
     }
 
-
     public Long getId() {
         return id;
     }
