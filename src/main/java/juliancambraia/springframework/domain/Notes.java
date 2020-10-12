@@ -11,7 +11,7 @@ import javax.persistence.Lob;
 import javax.persistence.OneToOne;
 
 @Data
-@EqualsAndHashCode
+@EqualsAndHashCode(exclude = {"recipe"})
 @Entity
 public class Notes {
     @Id
