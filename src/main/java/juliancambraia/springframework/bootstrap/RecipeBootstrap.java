@@ -9,6 +9,7 @@ import juliancambraia.springframework.domain.UnitOfMeasure;
 import juliancambraia.springframework.repositories.CategoryRepository;
 import juliancambraia.springframework.repositories.RecipeRepository;
 import juliancambraia.springframework.repositories.UnitOfMeasureRepository;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.ApplicationListener;
 import org.springframework.context.event.ContextRefreshedEvent;
 import org.springframework.stereotype.Component;
@@ -22,6 +23,7 @@ import java.util.Optional;
  * @author juliancambraia
  */
 
+@Slf4j
 @Component
 public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEvent> {
     private final CategoryRepository categoryRepository;
@@ -36,6 +38,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
     @Override
     public void onApplicationEvent(ContextRefreshedEvent contextRefreshedEvent) {
+        log.debug("Inicializa a aplicação adicionando dados ao H2");
         recipeRepository.saveAll(this.getRecipes());
     }
 
